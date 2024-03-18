@@ -1,0 +1,27 @@
+class Fibonacci implements Runnable {
+    private int n;
+
+    Fibonacci(int n) {
+        this.n = n;
+    }
+
+    @Override
+    public void run() {
+        int a = 0, b = 1;
+        System.out.println("Fibonacci Series:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");
+            int temp = a;
+            a = b;
+            b = temp + b;
+        }
+    }
+}
+
+public class FibonacciRunnableDemo {
+    public static void main(String[] args) {
+        Fibonacci fibonacci = new Fibonacci(10);
+        Thread thread = new Thread(fibonacci);
+        thread.start();
+    }
+}
