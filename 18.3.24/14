@@ -1,0 +1,29 @@
+class MultiplicationTableThread extends Thread {
+    private int number;
+
+    MultiplicationTableThread(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " x " + i + " = " + (number * i));
+            try {
+                Thread.sleep(500); // Sleep for 500 milliseconds
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class MultiplicationTableThreadDemo {
+    public static void main(String[] args) {
+        MultiplicationTableThread table5 = new MultiplicationTableThread(5);
+        MultiplicationTableThread table10 = new MultiplicationTableThread(10);
+
+        table5.start();
+        table10.start();
+    }
+}
