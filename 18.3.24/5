@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class AverageNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int positiveSum = 0;
+        int positiveCount = 0;
+        int negativeSum = 0;
+        int negativeCount = 0;
+
+        System.out.println("Enter numbers (enter -1 to stop): ");
+        int num = scanner.nextInt();
+        while (num != -1) {
+            if (num > 0) {
+                positiveSum += num;
+                positiveCount++;
+            } else if (num < 0) {
+                negativeSum += num;
+                negativeCount++;
+            }
+            num = scanner.nextInt();
+        }
+
+        if (positiveCount > 0) {
+            System.out.println("Average of positive numbers: " + ((double) positiveSum / positiveCount));
+        } else {
+            System.out.println("No positive numbers entered.");
+        }
+
+        if (negativeCount > 0) {
+            System.out.println("Average of negative numbers: " + ((double) negativeSum / negativeCount));
+        } else {
+            System.out.println("No negative numbers entered.");
+        }
+
+        scanner.close();
+    }
+}
