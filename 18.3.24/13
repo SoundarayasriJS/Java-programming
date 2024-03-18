@@ -1,0 +1,28 @@
+class Superclass {
+    int x;
+
+    Superclass(int x) {
+        this.x = x;
+    }
+}
+
+class Subclass extends Superclass {
+    int x;
+
+    Subclass(int x, int y) {
+        super(y);
+        this.x = x;
+    }
+
+    void display() {
+        System.out.println("Superclass x: " + super.x);
+        System.out.println("Subclass x: " + x);
+    }
+}
+
+public class MemberHiding {
+    public static void main(String[] args) {
+        Subclass obj = new Subclass(10, 20);
+        obj.display();
+    }
+}
