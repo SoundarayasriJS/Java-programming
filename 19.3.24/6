@@ -1,0 +1,30 @@
+import java.util.HashSet;
+
+public class UniquePermutations {
+    public static void main(String[] args) {
+        int number = 143;
+        HashSet<Integer> set = new HashSet<>();
+        permute(number, 0, set);
+        System.out.println("Unique Permutations of " + number + ": " + set);
+    }
+
+    public static void permute(int number, int index, HashSet<Integer> set) {
+        if (index == String.valueOf(number).length()) {
+            set.add(number);
+            return;
+        }
+        for (int i = index; i < String.valueOf(number).length(); i++) {
+            number = swap(number, index, i);
+            permute(number, index + 1, set);
+            number = swap(number, index, i); // backtrack
+        }
+    }
+
+    public static int swap(int number, int i, int j) {
+        char[] digits = String.valueOf(number).toCharArray();
+        char temp = digits[i];
+        digits[i] = digits[j];
+        digits[j] = temp;
+        return Integer.parseInt(new String(digits));
+    }
+}
