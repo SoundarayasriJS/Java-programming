@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class NumberAndSquareArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int[] array = new int[2];
+        array[0] = number;
+        array[1] = number * number;
+
+        System.out.println("Array: [" + array[0] + ", " + array[1] + "]");
+    }
+}
