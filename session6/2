@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class StudentGrades {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the marks in python: ");
+        int python = scanner.nextInt();
+        System.out.print("Enter the marks in c programming: ");
+        int c = scanner.nextInt();
+        System.out.print("Enter the marks in Mathematics: ");
+        int math = scanner.nextInt();
+        System.out.print("Enter the marks in Physics: ");
+        int physics = scanner.nextInt();
+        System.out.print("Enter the marks in Chemistry: ");
+        int chemistry = scanner.nextInt();
+        System.out.print("Enter the marks in Professional Ethics: ");
+        int ethics = scanner.nextInt();
+
+        int total = python + c + math + physics + chemistry + ethics;
+        double aggregate = total / 6.0;
+
+        System.out.println("Total= " + total);
+        System.out.println("Aggregate = " + aggregate);
+
+        String grade;
+        if (aggregate > 75) {
+            grade = "DISTINCTION";
+        } else if (aggregate >= 60) {
+            grade = "First Division";
+        } else if (aggregate >= 50) {
+            grade = "Second Division";
+        } else if (aggregate >= 40) {
+            grade = "Third Division";
+        } else {
+            grade = "FAIL";
+        }
+
+        System.out.println("Class: " + grade);
+    }
+}
