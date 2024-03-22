@@ -1,0 +1,14 @@
+public class LengthOfLastWord {
+    public int lengthOfLastWord(String s) {
+        String[] words = s.split(" ");
+        return words[words.length - 1].length();
+    }
+
+    public static void main(String[] args) {
+        LengthOfLastWord solution = new LengthOfLastWord();
+        // Test Cases
+        System.out.println(solution.lengthOfLastWord("Hello World")); // Output: 5
+        System.out.println(solution.lengthOfLastWord("Maximal Substring Consisting")); // Output: 10
+        System.out.println(solution.lengthOfLastWord("1254  98076")); // Output: 5
+    }
+}
