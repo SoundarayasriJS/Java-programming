@@ -1,0 +1,32 @@
+public class ReverseAndAdd {
+    public static boolean isPalindrome(int n) {
+        int temp = n, reversedNumber = 0, remainder;
+        while (temp != 0) {
+            remainder = temp % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            temp /= 10;
+        }
+        return n == reversedNumber;
+    }
+
+    public static int reverseAndAdd(int n) {
+        int originalNumber = n;
+        int reversedNumber = 0;
+        while (n != 0) {
+            int remainder = n % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            n /= 10;
+        }
+        return originalNumber + reversedNumber;
+    }
+
+    public static void main(String[] args) {
+        int inputNumber = 7325;
+        int sum = inputNumber;
+        while (!isPalindrome(sum)) {
+            sum = reverseAndAdd(sum);
+            System.out.println("Intermediate Sum: " + sum);
+        }
+        System.out.println("Palindrome achieved: " + sum);
+    }
+}
