@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+
+public class CommonElements {
+    public static List<Integer> findCommonElements(int[] arr1, int[] arr2) {
+        HashSet<Integer> set1 = new HashSet<>();
+        for (int num : arr1) {
+            set1.add(num);
+        }
+
+        HashSet<Integer> set2 = new HashSet<>();
+        for (int num : arr2) {
+            set2.add(num);
+        }
+
+        List<Integer> result = new ArrayList<>();
+        for (int num : set1) {
+            if (set2.contains(num)) {
+                result.add(num);
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        // Test Cases
+        int[] arr1 = {1, 2, 3, 4};
+        int[] arr2 = {4, 5, 6, 7, 8};
+        System.out.println("Common elements: " + findCommonElements(arr1, arr2)); // Output: [4]
+
+        // Additional test cases
+        int[] arr3 = {1, -2, 3, 4};
+        int[] arr4 = {1, -2, 5, 7, 8};
+        System.out.println("Common elements: " + findCommonElements(arr3, arr4)); // Output: [1, -2]
+    }
+}
